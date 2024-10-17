@@ -1,4 +1,4 @@
-import { getCSS } from "./common.js"
+import { getCSS, tickConfig } from "./common.js"
 async function quantidaedeUsuariosPorRede() {
     const url = 'https://raw.githubusercontent.com/guilhermeonrails/api/main/numero-usuarios.json'
     const res = await fatch(url)
@@ -24,7 +24,28 @@ async function quantidaedeUsuariosPorRede() {
             text: 'Redes sociais com mais usuários',
             x: 0,
             font: {
+                color: getCSS('--primary-color'),
+                size: 30,
                 color: getCSS('--font')
+            }
+        },
+        xaxis: {
+            tickfront: tickConfig
+            title: {
+                text: "Nome das redes",
+                font: {
+                    color: getCSS('--secondary-color')
+                }
+            }
+        },
+        yaxis: {
+            tickfont: tickConfig,
+            title: {
+                text: 'Bilhões de usuários ativos',
+                font: {
+                    color: getCSS("--secondary-color")
+                }
+
             }
         }
     }
